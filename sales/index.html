@@ -99,8 +99,8 @@
   /* Table */
   .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
   .scroll { overflow-x: auto; }
-  table { width: 100%; min-width: 820px; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
-  table[data-view]:not([data-view="all"]) { min-width: 0; }
+  table { width: 100%; min-width: 760px; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
+  table.single-col { min-width: 0; }
   th, td { padding: 0; text-align: left; vertical-align: middle; }
   thead th {
     background: var(--head); border-bottom: 1px solid var(--line); padding: 14px 18px;
@@ -130,6 +130,15 @@
   .line + .line { margin-top: 6px; }
   .line span.t { min-width: 0; overflow-wrap: anywhere; }
   .line span.na { color: var(--muted); font-size: 16px; opacity: 0.55; }
+
+  /* Huy hiệu Optional */
+  .badge-opt {
+    display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 6px;
+    font-size: 11.5px; font-weight: 600; color: var(--muted);
+    background: color-mix(in srgb, var(--ink) 6%, transparent);
+    border: 1px dashed color-mix(in srgb, var(--muted) 35%, transparent);
+    letter-spacing: .02em;
+  }
 
   /* Bài kiểm tra điều kiện */
   tr.gate td.item { background: var(--test-bg); color: var(--test); font-weight: 600; }
@@ -201,7 +210,7 @@
 
   <section class="card" aria-label="Bảng lộ trình đào tạo">
     <div class="scroll">
-      <table id="tbl" data-view="all">
+      <table id="tbl">
         <thead id="thead"></thead>
         <tbody id="tbody"></tbody>
       </table>
@@ -223,6 +232,9 @@
     if (item === '—') {
       return '<div class="line"><span class="na">—</span></div>';
     }
+    if (typeof item === 'string' && item.toLowerCase() === 'optional') {
+      return '<div class="line"><span class="badge-opt">Optional</span></div>';
+    }
     if (typeof item === 'string') {
       return '<div class="line">' + (gate ? SHIELD : '') + '<span class="t">' + esc(item) + '</span></div>';
     }
@@ -230,7 +242,7 @@
       '<button type="button" class="star" data-tip="' + esc(item.tip) + '" aria-label="Có bài kiểm tra: ' + esc(item.tip) + '">*</button></span></div>';
   }
 
-  /* ---------------- 1. KHỐI SALES ---------------- */
+  /* ---------------- 1. DỮ LIỆU KHỐI SALES ---------------- */
   var SALES_DATA = {
     title: 'Lộ Trình Đào Tạo Đội Ngũ Sales',
     sub: 'Phân luồng: Direct Sales & Telesales (Retail / FnB / Booking)',
@@ -287,14 +299,14 @@
     legend: [
       '<span class="key"><span class="star" aria-hidden="true">*</span>Có bài kiểm tra</span>',
       '<span class="key"><span class="gate-key">' + SHIELD + 'Bài kiểm tra điều kiện</span></span>',
-      '<span class="key"><span class="sw" style="--bar: var(--w1-bar); --tint: var(--w1-bg)"></span>Tuần 1: Hội nhập &amp; SPCB</span>',
-      '<span class="key"><span class="sw" style="--bar: var(--w2-bar); --tint: var(--w2-bg)"></span>Tuần 2: Quy trình &amp; Kỹ năng</span>',
-      '<span class="key"><span class="sw" style="--bar: var(--w3-bar); --tint: var(--w3-bg)"></span>Thử việc: TV1 – TV2</span>',
+      '<span class="key"><span class="sw" style="--bar: var(--w1-bar); --tint: var(--w1-bg)"></span>Tuần 1</span>',
+      '<span class="key"><span class="sw" style="--bar: var(--w2-bar); --tint: var(--w2-bg)"></span>Tuần 2</span>',
+      '<span class="key"><span class="sw" style="--bar: var(--w3-bar); --tint: var(--w3-bg)"></span>Thử việc</span>',
       '<span class="hint">Di chuột hoặc chạm vào * để xem nội dung kiểm tra</span>'
     ]
   };
 
-  /* ---------------- 2. KHỐI DVKH (Tổng đài / Upgrade / CS / KShip) ---------------- */
+  /* ---------------- 2. DỮ LIỆU KHỐI DVKH ---------------- */
   var DVKH_DATA = {
     title: 'Lộ Trình Đào Tạo Dịch Vụ Khách Hàng (DVKH)',
     sub: 'Phân luồng: Tổng đài • Upgrade • CS • KShip',
@@ -302,11 +314,11 @@
     tracks: [
       { id: 'tongdai', name: 'Tổng đài', short: 'Tổng đài' },
       { id: 'upgrade', name: 'Upgrade',  short: 'Upgrade' },
-      { id: 'cs',      name: 'Success',       short: 'CS' },
+      { id: 'cs',      name: 'CS',       short: 'CS' },
       { id: 'kship',   name: 'KShip',    short: 'KShip' }
     ],
     phases: [
-      { cls: 'w1', label: 'Tuần 1', sub: 'Bắt buộc / Nền tảng', rows: [
+      { cls: 'w1', label: 'Tuần 1', sub: 'Bắt buộc', rows: [
         /* 3 môn tất cả cùng học */
         { cells: function() { return { tongdai: ['Đào tạo Hội nhập'], upgrade: ['Đào tạo Hội nhập'], cs: ['Đào tạo Hội nhập'], kship: ['Đào tạo Hội nhập'] }; } },
         { cells: function() { return { tongdai: ['Đào tạo Sản phẩm Retail 01'], upgrade: ['Đào tạo Sản phẩm Retail 01'], cs: ['Đào tạo Sản phẩm Retail 01'], kship: ['Đào tạo Sản phẩm Retail 01'] }; } },
@@ -330,106 +342,147 @@
           cs:      ['Kịch bản chăm sóc khách hàng chủ động & Gia tăng giá trị phần mềm'],
           kship:   ['—'] }; } }
       ] },
-      { cls: 'w2', label: 'Tuần 2', sub: 'Chuyên môn SP 01', rows: [
+      /* Tuần 2: không để sub, 3 khối còn lại để Optional */
+      { cls: 'w2', label: 'Tuần 2', sub: '', rows: [
         { cells: function() { return {
           tongdai: ['Đào tạo Sản phẩm Retail 02'],
-          upgrade: ['—'], cs: ['—'], kship: ['—'] }; } },
+          upgrade: ['Optional'], cs: ['Optional'], kship: ['Optional'] }; } },
         { cells: function() { return {
           tongdai: ['Đào tạo Sản phẩm FNB 01'],
-          upgrade: ['—'], cs: ['—'], kship: ['—'] }; } }
+          upgrade: ['Optional'], cs: ['Optional'], kship: ['Optional'] }; } }
       ] },
-      { cls: 'w3', label: 'Tuần 3', sub: 'Chuyên môn Booking 01', rows: [
+      /* Tuần 3: không để sub, 3 khối còn lại để Optional */
+      { cls: 'w3', label: 'Tuần 3', sub: '', rows: [
         { cells: function() { return {
           tongdai: ['Đào tạo Sản phẩm Salon 01'],
-          upgrade: ['—'], cs: ['—'], kship: ['—'] }; } },
+          upgrade: ['Optional'], cs: ['Optional'], kship: ['Optional'] }; } },
         { cells: function() { return {
           tongdai: ['Đào tạo Sản phẩm Hotel 01'],
-          upgrade: ['—'], cs: ['—'], kship: ['—'] }; } }
+          upgrade: ['Optional'], cs: ['Optional'], kship: ['Optional'] }; } }
       ] },
-      { cls: 'w4', label: 'Tuần 4', sub: 'Nâng cao & Mở rộng', rows: [
+      /* Tuần 4: không để sub, 3 khối còn lại để Optional */
+      { cls: 'w4', label: 'Tuần 4', sub: '', rows: [
         { cells: function() { return {
           tongdai: ['Đào tạo Sản phẩm FNB 02'],
-          upgrade: ['—'], cs: ['—'], kship: ['—'] }; } },
+          upgrade: ['Optional'], cs: ['Optional'], kship: ['Optional'] }; } },
         { cells: function() { return {
           tongdai: ['Đào tạo Sản phẩm Salon 02'],
-          upgrade: ['—'], cs: ['—'], kship: ['—'] }; } },
+          upgrade: ['Optional'], cs: ['Optional'], kship: ['Optional'] }; } },
         { cells: function() { return {
           tongdai: ['Đào tạo Sản phẩm Hotel 02'],
-          upgrade: ['—'], cs: ['—'], kship: ['—'] }; } }
+          upgrade: ['Optional'], cs: ['Optional'], kship: ['Optional'] }; } }
       ] }
     ],
     legend: [
-      '<span class="key"><span class="sw" style="--bar: var(--w1-bar); --tint: var(--w1-bg)"></span>Tuần 1: Nền tảng bắt buộc</span>',
-      '<span class="key"><span class="sw" style="--bar: var(--w2-bar); --tint: var(--w2-bg)"></span>Tuần 2: Sản phẩm 01</span>',
-      '<span class="key"><span class="sw" style="--bar: var(--w3-bar); --tint: var(--w3-bg)"></span>Tuần 3: Booking 01</span>',
-      '<span class="key"><span class="sw" style="--bar: var(--w4-bar); --tint: var(--w4-bg)"></span>Tuần 4: Chuyên sâu 02</span>',
-      '<span class="hint"><span style="color:var(--muted)">—</span> : Không áp dụng cho phân luồng này</span>'
+      '<span class="key"><span class="badge-opt">Optional</span>Khóa học tùy chọn theo nhu cầu</span>',
+      '<span class="key"><span class="sw" style="--bar: var(--w1-bar); --tint: var(--w1-bg)"></span>Tuần 1</span>',
+      '<span class="key"><span class="sw" style="--bar: var(--w2-bar); --tint: var(--w2-bg)"></span>Tuần 2</span>',
+      '<span class="key"><span class="sw" style="--bar: var(--w3-bar); --tint: var(--w3-bg)"></span>Tuần 3</span>',
+      '<span class="key"><span class="sw" style="--bar: var(--w4-bar); --tint: var(--w4-bg)"></span>Tuần 4</span>',
+      '<span class="hint">Click từng tab để xem lộ trình đã rút gọn dòng trống</span>'
     ]
   };
 
-  /* ---------------- RENDER ENGINE ---------------- */
+  /* ---------------- RENDER ENGINE DYNAMIC ROW ---------------- */
   var currentDept = 'sales';
+  var currentView = 'all';
   var tbl = document.getElementById('tbl');
   var thead = document.getElementById('thead');
   var tbody = document.getElementById('tbody');
   var seg = document.getElementById('seg');
   var legend = document.getElementById('legend');
 
+  function getCurrentData() {
+    return currentDept === 'sales' ? SALES_DATA : DVKH_DATA;
+  }
+
+  function renderTable(view) {
+    currentView = view;
+    var data = getCurrentData();
+
+    // 1. Xác định các cột hiển thị
+    var activeTracks = (view === 'all')
+      ? data.tracks
+      : data.tracks.filter(function(t) { return t.id === view; });
+
+    if (view === 'all') {
+      tbl.classList.remove('single-col');
+    } else {
+      tbl.classList.add('single-col');
+    }
+
+    // 2. Render Header
+    thead.innerHTML = '<tr><th class="col-time" scope="col">Giai đoạn</th>' +
+      activeTracks.map(function(t) { return '<th scope="col">' + esc(t.name) + '</th>'; }).join('') + '</tr>';
+
+    // 3. Render Body: Tự động loại bỏ các dòng trống khi xem từng tab
+    var bodyHtml = '';
+    data.phases.forEach(function(p) {
+      // Lọc các dòng: nếu xem từng tab thì chỉ giữ lại dòng có khóa học (khác '—')
+      var visibleRows = p.rows.filter(function(r) {
+        if (view === 'all') return true;
+        var cells = r.cells();
+        var items = cells[view] || [];
+        return items.length > 0 && !items.every(function(it) { return it === '—'; });
+      });
+
+      if (visibleRows.length === 0) return;
+
+      visibleRows.forEach(function(r, i) {
+        var cls = p.cls + (r.gate ? ' gate' : '') + (i === 0 ? ' first' : '');
+        bodyHtml += '<tr class="' + cls + '">';
+
+        // Cột giai đoạn: rowspan tự động theo số dòng thực tế còn lại
+        if (i === 0) {
+          var subHtml = p.sub ? '<small>' + esc(p.sub) + '</small>' : '';
+          bodyHtml += '<td class="phase" rowspan="' + visibleRows.length + '">' +
+            '<span class="pill">' + esc(p.label) + '</span>' + subHtml + '</td>';
+        }
+
+        var cellsData = r.cells();
+        activeTracks.forEach(function(t) {
+          var items = cellsData[t.id] || ['—'];
+          bodyHtml += '<td class="item">' + items.map(function(it) { return lineHtml(it, r.gate); }).join('') + '</td>';
+        });
+
+        bodyHtml += '</tr>';
+      });
+    });
+
+    tbody.innerHTML = bodyHtml;
+    hideTip();
+  }
+
   function renderDept(deptKey) {
     currentDept = deptKey;
-    var data = deptKey === 'sales' ? SALES_DATA : DVKH_DATA;
+    var data = getCurrentData();
 
-    // Header info
+    // Cập nhật thông tin Header
     document.getElementById('main-title').textContent = data.title;
     document.getElementById('main-sub').textContent = data.sub;
     document.getElementById('dept-desc').textContent = data.desc;
 
-    // Sub filter (Phân luồng vị trí)
+    // Cập nhật các nút phân luồng vị trí
     var views = [{ id: 'all', label: 'Tất cả vị trí' }].concat(data.tracks.map(function(t) { return { id: t.id, label: t.short }; }));
     seg.innerHTML = views.map(function (v) {
       return '<button type="button" data-view="' + v.id + '" aria-pressed="' + (v.id === 'all') + '">' + esc(v.label) + '</button>';
     }).join('');
 
-    // Table Header
-    thead.innerHTML = '<tr><th class="col-time" scope="col">Giai đoạn</th>' +
-      data.tracks.map(function (t) { return '<th scope="col" data-col="' + t.id + '">' + esc(t.name) + '</th>'; }).join('') + '</tr>';
-
-    // Table Body
-    var bodyHtml = '';
-    data.phases.forEach(function (p) {
-      p.rows.forEach(function (r, i) {
-        var cls = p.cls + (r.gate ? ' gate' : '') + (i === 0 ? ' first' : '');
-        bodyHtml += '<tr class="' + cls + '">';
-        if (i === 0) {
-          bodyHtml += '<td class="phase" rowspan="' + p.rows.length + '"><span class="pill">' + esc(p.label) + '</span><small>' + esc(p.sub) + '</small></td>';
-        }
-        var cellsData = r.cells();
-        data.tracks.forEach(function (t) {
-          var items = cellsData[t.id] || ['—'];
-          bodyHtml += '<td class="item" data-col="' + t.id + '">' + items.map(function (it) { return lineHtml(it, r.gate); }).join('') + '</td>';
-        });
-        bodyHtml += '</tr>';
-      });
-    });
-    tbody.innerHTML = bodyHtml;
-
-    // Legend
+    // Cập nhật chú thích Footer
     legend.innerHTML = data.legend.join('');
 
-    // Reset view to 'all'
-    setView('all');
+    // Render bảng ở chế độ Tất cả
+    renderTable('all');
   }
 
   function setView(id) {
-    tbl.setAttribute('data-view', id);
-    Array.prototype.forEach.call(seg.children, function (b) { b.setAttribute('aria-pressed', String(b.dataset.view === id)); });
-    Array.prototype.forEach.call(tbl.querySelectorAll('[data-col]'), function (c) {
-      c.hidden = id !== 'all' && c.dataset.col !== id;
+    Array.prototype.forEach.call(seg.children, function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.view === id));
     });
-    hideTip();
+    renderTable(id);
   }
 
-  // Event switch Department (Sales <-> DVKH)
+  // Chuyển khối Sales <-> DVKH
   document.querySelectorAll('.dept-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       document.querySelectorAll('.dept-btn').forEach(function(b) { b.setAttribute('aria-selected', 'false'); });
@@ -438,7 +491,7 @@
     });
   });
 
-  // Event filter track
+  // Chuyển vị trí phân luồng
   seg.addEventListener('click', function (e) {
     var b = e.target.closest('button[data-view]');
     if (b) setView(b.dataset.view);
@@ -474,8 +527,8 @@
   window.addEventListener('scroll', hideTip, true);
   window.addEventListener('resize', hideTip);
 
-  // Khởi chạy mặc định ở Khối Sales
-  renderDept('sales');
+  // Mặc định khởi chạy ở Khối DVKH để bạn tiện kiểm tra ngay
+  document.querySelector('.dept-btn[data-dept="dvkh"]').click();
 </script>
 
 </body></html>
