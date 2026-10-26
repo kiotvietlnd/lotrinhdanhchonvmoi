@@ -1,0 +1,348 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Lộ Trình Đào Tạo Sales KiotViet</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    --bg: #eef2f8;
+    --surface: #ffffff;
+    --ink: #172033;
+    --muted: #5d6b82;
+    --line: #e1e7f0;
+    --head: #f3f6fb;
+    --accent: #1d4ed8;
+    --accent-ink: #ffffff;
+    --test: #be123c;
+    --test-bg: #fff1f4;
+    --test-line: #fbcfd8;
+    --w1-bg: #eef4ff; --w1-cell: #f6f9ff; --w1-pill: #dbe8ff; --w1-ink: #1e3a8a; --w1-bar: #3b82f6;
+    --w2-bg: #e9f9f0; --w2-cell: #f4fcf8; --w2-pill: #cdf3dc; --w2-ink: #14532d; --w2-bar: #22a05b;
+    --w3-bg: #fff6dc; --w3-cell: #fffbee; --w3-pill: #fde9a8; --w3-ink: #713f12; --w3-bar: #e0a21b;
+    --tip-bg: #1b2540;
+    --tip-ink: #ffffff;
+    --tip-line: rgba(255, 255, 255, .22);
+    --shadow: 0 1px 2px rgba(23, 32, 51, .05), 0 6px 20px rgba(23, 32, 51, .06);
+    --font: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d1424; --surface: #141c2f; --ink: #e8edf7; --muted: #93a1ba; --line: #26314a; --head: #1a2338;
+      --accent: #6b9bff; --accent-ink: #0d1424;
+      --test: #fb7a97; --test-bg: #2a1620; --test-line: #4d2433;
+      --w1-bg: #14223f; --w1-cell: #121c33; --w1-pill: #213a6b; --w1-ink: #bcd2ff; --w1-bar: #5b8def;
+      --w2-bg: #11291f; --w2-cell: #10211b; --w2-pill: #1d4a35; --w2-ink: #b5eccd; --w2-bar: #3fbf80;
+      --w3-bg: #2d2610; --w3-cell: #231e10; --w3-pill: #5a4812; --w3-ink: #fbe3a0; --w3-bar: #e7b43a;
+      --tip-bg: #2a375a; --tip-ink: #ffffff; --tip-line: rgba(255, 255, 255, .22);
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1424; --surface: #141c2f; --ink: #e8edf7; --muted: #93a1ba; --line: #26314a; --head: #1a2338;
+    --accent: #6b9bff; --accent-ink: #0d1424;
+    --test: #fb7a97; --test-bg: #2a1620; --test-line: #4d2433;
+    --w1-bg: #14223f; --w1-cell: #121c33; --w1-pill: #213a6b; --w1-ink: #bcd2ff; --w1-bar: #5b8def;
+    --w2-bg: #11291f; --w2-cell: #10211b; --w2-pill: #1d4a35; --w2-ink: #b5eccd; --w2-bar: #3fbf80;
+    --w3-bg: #2d2610; --w3-cell: #231e10; --w3-pill: #5a4812; --w3-ink: #fbe3a0; --w3-bar: #e7b43a;
+    --tip-bg: #2a375a; --tip-ink: #ffffff; --tip-line: rgba(255, 255, 255, .22);
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 1.5;
+    padding-block: 24px 40px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .page { max-width: 1200px; margin-inline: auto; display: grid; gap: 16px; }
+
+  /* Header */
+  .top {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow);
+    padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+  .logo {
+    flex: none; width: 44px; height: 44px; border-radius: 12px; background: var(--accent); color: var(--accent-ink);
+    display: grid; place-items: center; font-weight: 800; font-size: 16px; letter-spacing: .02em;
+  }
+  h1 { margin: 0; font-size: 20px; line-height: 1.25; font-weight: 700; text-wrap: balance; }
+  .sub { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; }
+  .filter { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .filter-label { font-size: 12px; font-weight: 600; color: var(--muted); }
+  .seg { display: flex; flex-wrap: wrap; gap: 2px; padding: 3px; background: var(--head); border: 1px solid var(--line); border-radius: 10px; }
+  .seg button {
+    font: inherit; font-size: 12.5px; font-weight: 600; color: var(--muted); background: transparent; border: 0;
+    padding: 6px 12px; border-radius: 7px; cursor: pointer;
+  }
+  .seg button:hover { color: var(--ink); }
+  .seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(23, 32, 51, .15); }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Table */
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .scroll { overflow-x: auto; }
+  table { width: 100%; min-width: 820px; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
+  table[data-view]:not([data-view="all"]) { min-width: 0; }
+  th, td { padding: 0; text-align: left; vertical-align: middle; }
+  thead th {
+    background: var(--head); border-bottom: 1px solid var(--line); padding: 14px 18px;
+    font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--ink);
+  }
+  thead th + th { border-left: 1px solid var(--line); }
+  .col-time { width: 148px; }
+  thead .col-time { position: sticky; left: 0; z-index: 2; }
+
+  td.phase {
+    position: sticky; left: 0; z-index: 1; text-align: center; padding: 14px 10px;
+    border-top: 1px solid var(--line); box-shadow: inset 4px 0 0 var(--bar);
+  }
+  .pill { display: inline-block; padding: 4px 14px; border-radius: 8px; font-weight: 700; font-size: 14px; background: var(--pill); color: var(--pink); }
+  .phase small { display: block; margin-top: 6px; font-size: 11.5px; line-height: 1.35; color: var(--pink); opacity: .85; }
+  tr.w1 { --bar: var(--w1-bar); --pill: var(--w1-pill); --pink: var(--w1-ink); --cell: var(--w1-cell); --tint: var(--w1-bg); }
+  tr.w2 { --bar: var(--w2-bar); --pill: var(--w2-pill); --pink: var(--w2-ink); --cell: var(--w2-cell); --tint: var(--w2-bg); }
+  tr.w3 { --bar: var(--w3-bar); --pill: var(--w3-pill); --pink: var(--w3-ink); --cell: var(--w3-cell); --tint: var(--w3-bg); }
+  td.phase { background: var(--tint); }
+  td.item { background: var(--cell); padding: 12px 18px; border-top: 1px solid color-mix(in srgb, var(--bar) 14%, transparent); border-left: 1px solid color-mix(in srgb, var(--bar) 14%, transparent); }
+  tr.first td.phase, tr.first td.item { border-top-color: var(--line); }
+
+  .line { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+  .line + .line { margin-top: 6px; }
+  .line span.t { min-width: 0; overflow-wrap: anywhere; }
+
+  /* Bài kiểm tra điều kiện */
+  tr.gate td.item { background: var(--test-bg); color: var(--test); font-weight: 600; }
+  tr.gate .line { align-items: flex-start; flex-wrap: nowrap; }
+  tr.gate svg { flex: none; width: 17px; height: 17px; margin-top: 2px; }
+
+  /* Dấu sao đã tinh chỉnh */
+  .star {
+    display: inline-block;
+    margin: 0 0 0 2px;
+    padding: 0 2px;
+    border: 0;
+    background: none;
+    cursor: help;
+    font: inherit;
+    font-size: 0.85em;
+    font-weight: 700;
+    line-height: 1;
+    vertical-align: 0.25em;
+    color: var(--test);
+  }
+
+  #tip {
+    position: fixed; z-index: 50; min-width: 180px; max-width: 280px; padding: 10px 14px 12px; border-radius: 10px;
+    pointer-events: none; background: var(--tip-bg); color: var(--tip-ink); line-height: 1.4;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .28);
+  }
+  #tip .tt { font-size: 13px; font-weight: 700; padding-bottom: 7px; margin-bottom: 7px; border-bottom: 1px solid var(--tip-line); }
+  #tip .ti { display: flex; gap: 6px; font-size: 13px; font-weight: 500; }
+
+  /* Chú thích */
+  .legend {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 18px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; font-size: 12.5px; color: var(--muted);
+  }
+  .legend .key { display: inline-flex; align-items: center; gap: 8px; }
+  .legend .star { cursor: default; padding: 0; vertical-align: baseline; }
+  .gate-key {
+    display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 6px;
+    background: var(--test-bg); border: 1px solid var(--test-line); color: var(--test); font-weight: 600;
+  }
+  .gate-key svg { width: 14px; height: 14px; }
+  .sw { width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--bar); background: var(--tint); }
+  .legend .hint { margin-left: auto; font-size: 12px; }
+
+  @media (max-width: 640px) {
+    .col-time { width: 96px; }
+    td.phase { padding: 10px 6px; }
+    .pill { font-size: 13px; padding: 3px 10px; }
+    thead th { padding: 12px; }
+    td.item { padding: 10px 12px; }
+    .legend .hint { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .star { transition: none; } }
+</style>
+
+<div class="page">
+  <header class="top">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">KV</div>
+      <div>
+        <h1>Lộ Trình Đào Tạo Đội Ngũ Sales KiotViet</h1>
+        <p class="sub">Phân luồng: Direct Sales &amp; Telesales (Retail / FnB / Booking)</p>
+      </div>
+    </div>
+    <div class="filter">
+      <span class="filter-label" id="fl">Xem vị trí</span>
+      <div class="seg" role="group" aria-labelledby="fl" id="seg"></div>
+    </div>
+  </header>
+
+  <section class="card" aria-label="Bảng lộ trình đào tạo">
+    <div class="scroll">
+      <table id="tbl" data-view="all">
+        <thead id="thead"></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="legend">
+    <span class="key"><span class="star" aria-hidden="true">*</span>Có bài kiểm tra cuối khóa</span>
+    <span class="key"><span class="gate-key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>Bài kiểm tra điều kiện</span></span>
+    <span class="key"><span class="sw" style="--bar: var(--w1-bar); --tint: var(--w1-bg)"></span>Tuần 1: Hội nhập &amp; SPCB</span>
+    <span class="key"><span class="sw" style="--bar: var(--w2-bar); --tint: var(--w2-bg)"></span>Tuần 2: Quy trình &amp; Kỹ năng</span>
+    <span class="key"><span class="sw" style="--bar: var(--w3-bar); --tint: var(--w3-bg)"></span>Thử việc: TV1 – TV2</span>
+    <span class="hint">Di chuột hoặc chạm vào * để xem bài kiểm tra</span>
+  </footer>
+</div>
+
+<div id="tip" role="tooltip" hidden></div>
+
+<script>
+  var TRACKS = [
+    { id: 'ds',  name: 'Direct Sales (DS)', short: 'DS' },
+    { id: 'tsr', name: 'Telesales Retail',  short: 'TS Retail' },
+    { id: 'tsf', name: 'Telesales FnB',     short: 'TS FnB' },
+    { id: 'tsb', name: 'Telesales Booking', short: 'TS Booking' }
+  ];
+
+  function same(v) { return { ds: v, tsr: v, tsf: v, tsb: v }; }
+  function star(text) { return { text: text, tip: text }; }
+
+  var PHASES = [
+    { cls: 'w1', label: 'Tuần 1', sub: 'Hội nhập & SPCB', rows: [
+      { cells: same(['Đào tạo Hội nhập']) },
+      { cells: same(['Đào tạo SPCB KV Retail Buổi 1']) },
+      { cells: {
+        ds:  ['Đào tạo SPCB KV Retail Buổi 2'],
+        tsr: ['Đào tạo SPCB KV Retail Buổi 2'],
+        tsf: ['Đào tạo SPCB KV FNB Buổi 2'],
+        tsb: ['Đào tạo SPCB KV Salon Buổi 2'] } },
+      { cells: {
+        ds:  ['Đào tạo SPCB KV Retail Buổi 3'],
+        tsr: ['Đào tạo SPCB KV Retail Buổi 3'],
+        tsf: ['Đào tạo SPCB KV FNB Buổi 3'],
+        tsb: ['Đào tạo SPCB KV Hotel Buổi 3'] } },
+      { gate: true, cells: {
+        ds:  ['Bài kiểm tra cuối khóa SPCB KiotViet Retail'],
+        tsr: ['Bài kiểm tra cuối khóa SPCB KiotViet Retail'],
+        tsf: ['Bài kiểm tra cuối khóa SPCB KiotViet FNB'],
+        tsb: ['Bài kiểm tra cuối khóa SPCB Booking (Salon + Hotel)'] } }
+    ] },
+    { cls: 'w2', label: 'Tuần 2', sub: 'Quy trình & Kỹ năng', rows: [
+      { cells: same([star('Đào tạo COC-CRM', 'COC-CRM')]) },
+      { cells: {
+        ds:  [star('Đào tạo kỹ năng cho Direct Sales', 'Kỹ năng Direct Sales')],
+        tsr: [star('Đào tạo kỹ năng cho Telesales', 'Kỹ năng Telesales')],
+        tsf: [star('Đào tạo kỹ năng cho Telesales', 'Kỹ năng Telesales')],
+        tsb: [star('Đào tạo kỹ năng cho Telesales', 'Kỹ năng Telesales')] } }
+    ] },
+    { cls: 'w3', label: 'Thử việc', sub: 'TV1 - TV2', rows: [
+      { cells: same([star('Đào tạo Sản phẩm Kế toán 01', 'Sản phẩm Kế toán 01')]) },
+      { cells: {
+        ds:  [star('Đào tạo Sản phẩm Retail 01', 'Sản phẩm Retail 01')],
+        tsr: [star('Đào tạo Sản phẩm Retail 01', 'Sản phẩm Retail 01')],
+        tsf: [star('Đào tạo Sản phẩm FNB 01', 'Sản phẩm FNB 01')],
+        tsb: [star('Đào tạo Sản phẩm Salon 01', 'Sản phẩm Salon 01'),
+              star('Đào tạo Sản phẩm Hotel 01', 'Sản phẩm Hotel 01')] } },
+      { cells: same(['Chương trình Tuân thủ']) }
+    ] }
+  ];
+
+  var SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>';
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  function lineHtml(item, gate) {
+    if (typeof item === 'string') {
+      return '<div class="line">' + (gate ? SHIELD : '') + '<span class="t">' + esc(item) + '</span></div>';
+    }
+    return '<div class="line"><span class="t">' + esc(item.text) +
+      '<button type="button" class="star" data-tip="' + esc(item.tip) + '" aria-label="Có bài kiểm tra cuối khóa: ' + esc(item.tip) + '">*</button></span></div>';
+  }
+
+  var head = '<tr><th class="col-time" scope="col">Thời gian</th>' +
+    TRACKS.map(function (t) { return '<th scope="col" data-col="' + t.id + '">' + esc(t.name) + '</th>'; }).join('') + '</tr>';
+  document.getElementById('thead').innerHTML = head;
+
+  var body = '';
+  PHASES.forEach(function (p) {
+    p.rows.forEach(function (r, i) {
+      var cls = p.cls + (r.gate ? ' gate' : '') + (i === 0 ? ' first' : '');
+      body += '<tr class="' + cls + '">';
+      if (i === 0) {
+        body += '<td class="phase" rowspan="' + p.rows.length + '"><span class="pill">' + esc(p.label) + '</span><small>' + esc(p.sub) + '</small></td>';
+      }
+      TRACKS.forEach(function (t) {
+        body += '<td class="item" data-col="' + t.id + '">' + r.cells[t.id].map(function (it) { return lineHtml(it, r.gate); }).join('') + '</td>';
+      });
+      body += '</tr>';
+    });
+  });
+  document.getElementById('tbody').innerHTML = body;
+
+  /* Bộ lọc vị trí */
+  var seg = document.getElementById('seg');
+  var tbl = document.getElementById('tbl');
+  var views = [{ id: 'all', label: 'Tất cả' }].concat(TRACKS.map(function (t) { return { id: t.id, label: t.short }; }));
+  seg.innerHTML = views.map(function (v) {
+    return '<button type="button" data-view="' + v.id + '" aria-pressed="' + (v.id === 'all') + '">' + esc(v.label) + '</button>';
+  }).join('');
+
+  function setView(id) {
+    tbl.setAttribute('data-view', id);
+    Array.prototype.forEach.call(seg.children, function (b) { b.setAttribute('aria-pressed', String(b.dataset.view === id)); });
+    Array.prototype.forEach.call(tbl.querySelectorAll('[data-col]'), function (c) {
+      c.hidden = id !== 'all' && c.dataset.col !== id;
+    });
+    hideTip();
+  }
+  seg.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-view]');
+    if (b) setView(b.dataset.view);
+  });
+
+  /* Tooltip cho dấu sao */
+  var tip = document.getElementById('tip');
+  var active = null;
+  function showTip(btn) {
+    active = btn;
+    tip.innerHTML = '<div class="tt">Có bài kiểm tra cuối khóa</div><div class="ti"><span>•</span><span>' + esc(btn.dataset.tip) + '</span></div>';
+    tip.hidden = false;
+    var r = btn.getBoundingClientRect();
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), window.innerWidth - w - 8);
+    var top = r.top - h - 8;
+    if (top < 8) top = r.bottom + 8;
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    btn.setAttribute('aria-expanded', 'true');
+  }
+  function hideTip() {
+    tip.hidden = true;
+    if (active) active.removeAttribute('aria-expanded');
+    active = null;
+  }
+  var tbody = document.getElementById('tbody');
+  tbody.addEventListener('mouseover', function (e) { var b = e.target.closest('.star'); if (b) showTip(b); });
+  tbody.addEventListener('mouseout', function (e) { if (e.target.closest('.star')) hideTip(); });
+  tbody.addEventListener('focusin', function (e) { var b = e.target.closest('.star'); if (b) showTip(b); });
+  tbody.addEventListener('focusout', hideTip);
+  tbody.addEventListener('click', function (e) { var b = e.target.closest('.star'); if (b) showTip(b); });
+  document.addEventListener('click', function (e) { if (!e.target.closest('.star')) hideTip(); });
+  window.addEventListener('scroll', hideTip, true);
+  window.addEventListener('resize', hideTip);
+</script>
+
+</body></html>
